@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter</title>
+</head>
+<body>
+        <h1 class="header">Weight Converter</h1>
+        <label for="weight">Convert</label>
+        <select id="weight">
+            <option value="pounds">Pounds</option>
+
+            <!-- I'm still trying to figure out how to change other units to pounds for example, making kilograms the subject and converting it to pounds, grams and ounces -->
+            
+            <!-- <option value="kilograms">Kilograms</option>
+            <option value="grams">Grams</option>
+            <option value="ounces">Ounces</option> -->
+          </select>
+
+        <div id="pounds-convert">
+            <input type="number" class="unit" id="lbs-input" placeholder="Enter Pounds...">
+
+            <div id="container">
+                <div class="unit" id="unit1">
+                    <h4>Grams:</h4>
+                    <div id="grams-output"></div>
+                </div>
+
+                <div class="unit" id="unit2">
+                    <h4>Kilograms:</h4>
+                    <div id="kgs-output"></div>
+                </div>
+
+                <div class="unit" id="unit3">
+                    <h4>Ounces:</h4>
+                    <div id="ounces-output"></div>
+                </div>
+             </div>
+        </div>
+
+    <style>
+        body {
+            text-align: center;
+            margin: 0 auto;
+            background: rgb(31, 26, 26);
+            color: #fff;
+            font-weight: 200;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            overflow: hidden;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 350px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .unit {
+            margin: 3px 0;
+            height: 65px;
+            line-height: 1px;
+            padding: 0 10px;
+        }
+
+        #lbs-input {
+            height: 25px;
+            width: 325px;
+            margin-bottom: 10px;
+        }
+
+        #unit1 {
+            background: rgb(72, 10, 129);
+        }
+
+        #unit2 {
+            background: rgb(88, 143, 5);
+        }
+
+        #unit3 {
+            background: red;
+        }
+
+        #weight {
+            height: 25px;
+        }
+
+    </style>
+
+  <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('container').style.visibility = 'hidden';
+      });
+
+
+      document.getElementById('lbs-input').addEventListener('input', function(e) {
+        document.getElementById('container').style.visibility = 'visible';
+          let lbs = e.target.value;
+          document.getElementById('grams-output').innerHTML = lbs/0.0022046;
+          document.getElementById('kgs-output').innerHTML = lbs/2.2046;
+          document.getElementById('ounces-output').innerHTML = lbs*16;
+      })
+
+  </script>
+</body>
+</html>
